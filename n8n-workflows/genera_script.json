@@ -1,0 +1,136 @@
+{
+  "name": "genera_script",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "webhook-tutorial",
+        "responseMode": "=onReceived",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "09267ba6-515a-4802-8cb4-c913eed014e1",
+      "name": "Webhook",
+      "webhookId": "b11f62da-5c1c-473f-8000-5dc38585111e"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openAiApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"gpt-4o-mini\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"Sei un esperto copywriter specializzato nella creazione di script per reel Instagram/TikTok in formato tutorial. Il tuo compito è generare contenuti virali che combinino educazione e intrattenimento, ottimizzati per il formato verticale e la fruizione mobile. Conosci perfettamente le dinamiche dell'algoritmo dei social media e sai come strutturare contenuti che massimizzano engagement, retention e reach organico.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"Genera uno script dettagliato per un reel su {{ $json.body.argomento }} di esattamente 25-30 secondi.\\n\\n## SPECIFICHE TECNICHE:\\n- Durata: 25-30 secondi massimo\\n- Target: Millennials e Gen Z (18-35 anni)\\n- Tono: Umoristico, diretto, ironico ma utile\\n- Obiettivo: Educare attraverso l'intrattenimento con approccio \\\"ovvio ma geniale\\\"\\n\\n## STRUTTURA RICHIESTA:\\n\\n### HOOK (primi 3 secondi):\\n- Frase d'apertura che cattura immediatamente l'attenzione\\n- Deve creare curiosità o identificazione immediata\\n- Includi una domanda retorica o statement provocatorio\\n- Esempio: \\\"Se ancora fai X nel 2025, questo video è per te\\\"\\n\\n### CORPO - 3 STEP ULTRA-RAPIDI (15-20 secondi):\\nOgni step deve essere:\\n- Massimo 5-7 secondi ciascuno\\n- Azione concreta e specifica\\n- Linguaggio semplice e diretto\\n- Un verbo d'azione per step\\n- Risultato/beneficio immediato visibile\\n\\n### CHIUSURA WITTY (ultimi 5-7 secondi):\\n- Battuta finale memorabile\\n- Call-to-action nascosta in modo naturale\\n- Rimando ironico all'ovvietà del tutorial\\n- Invito all'engagement (commento/salvataggio)\\n\\n## ELEMENTI DA INCLUDERE:\\n\\n### COPYWRITING PERSUASIVO:\\n- Utilizza power words che generano azione\\n- Includi numeri specifici quando possibile\\n- Crea urgenza senza essere aggressivo\\n- Usa pattern di interruzione mentale\\n\\n### OTTIMIZZAZIONE ALGORITMO:\\n- Inserisci 2-3 keyword rilevanti naturalmente\\n- Crea momenti di \\\"micro-suspense\\\"\\n- Includi elementi che favoriscono i rewatch\\n- Progetta per massimizzare il completion rate\\n\\n### ASPETTI TECNICI VIDEO:\\n- Indica i momenti di cambio inquadratura\\n- Suggerisci elementi grafici/text overlay quando utili\\n- Specifica quando utilizzare zoom, close-up o transizioni\\n- Tempo di permanenza per ogni slide/inquadratura\\n\\n### ENGAGEMENT DRIVERS:\\n- Domanda finale che stimoli commenti\\n- Elemento \\\"controverso\\\" o dibattibile (se appropriato)\\n- Riferimento a trend o meme attuali\\n- Personalizzazione geografica (se rilevante)\\n\\n## VINCOLI CREATIVI:\\n- Evita cliché overusati sui social\\n- Non utilizzare \\\"Life hack\\\" o \\\"Trucchetto\\\"\\n- Mantieni un equilibrio tra utile e divertente\\n- Assicurati che sia realmente actionable\\n- Considera la fruizione senza audio (50% degli utenti)\\n\\n## OUTPUT RICHIESTO:\\n\\nFornisci lo script in questo formato:\\n\\n**SCRIPT COMPLETO:**\\n[Testo parlato completo con timing]\\n\\n**BREAKDOWN TECNICO:**\\n- Hook (0-3s): [dettagli]\\n- Step 1 (4-10s): [dettagli]\\n- Step 2 (11-17s): [dettagli]\\n- Step 3 (18-24s): [dettagli]\\n- Chiusura (25-30s): [dettagli]\\n\\n**NOTE REGIA:**\\n[Indicazioni per riprese, inquadrature, grafiche]\\n\\n**HASHTAG SUGGERITI:**\\n[5-7 hashtag strategici per la nicchia]\\n\\n**COPY DESCRIZIONE:**\\n[Testo per la caption del post, max 125 caratteri]\\n\\n**METRICHE ATTESE:**\\n[KPI da monitorare per questo tipo di contenuto]\\n\\nRicorda: L'obiettivo è creare contenuto che la gente salvi, condivida e commenti perché è simultaneamente ovvio e geniale.\"\n    }\n  ],\n  \"max_tokens\": 1200,\n  \"temperature\": 0.8,\n  \"top_p\": 0.9\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "0b94ee52-41a2-4a7c-b481-b05712a07789",
+      "name": "HTTP Request",
+      "credentials": {
+        "openAiApi": {
+          "id": "mIq24DxTF9kpGHS5",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "return {\n  json: {\n    reel_id: $json[\"reel_id\"],\n    script: $json[\"choices\"][0][\"message\"][\"content\"],\n  },\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        0
+      ],
+      "id": "78735a4e-8d22-4869-aeab-5118648eca17",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=http://172.25.193.49:8000/api/reels/{{ $('Webhook').item.json.body.reel_id }}/status\n",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "status",
+              "value": "script_generated"
+            },
+            {
+              "name": "script",
+              "value": "={{$json[\"script\"]}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        660,
+        0
+      ],
+      "id": "d37494b5-653e-4ec4-a6a7-a612a2c39c4c",
+      "name": "HTTP Request1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "89ed483a-3e18-4c4a-b2b4-b3651430abf6",
+  "meta": {
+    "instanceId": "6ec7c5769913ad7000fc21e3082d9fb80decc860de229aa3b9a93ddcff72937c"
+  },
+  "id": "zHn7fJVMIfL7HaA3",
+  "tags": []
+}
