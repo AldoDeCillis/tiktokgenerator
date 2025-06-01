@@ -14,7 +14,7 @@
               $table->text('script')->nullable();
               $table->string('video_path')->nullable();
               $table->string('social_post_id')->nullable();
-              $table->enum('status', ['pending', 'script_generated', 'video_ready', 'publishing', 'published', 'error'])
+              $table->enum('status', ['pending', 'script_generated', 'processing', 'video_ready', 'publishing', 'published', 'error'])
                     ->default('pending');
               $table->text('error_message')->nullable();
               $table->timestamps();

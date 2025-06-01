@@ -16,6 +16,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::post('/api/reels', [ReelController::class, 'store']);
 Route::post('/api/reels/{id}/status', [ReelController::class, 'updateStatus']);
+Route::post('/api/reels/{id}/create-video', [ReelController::class, 'createVideo']);
+Route::post('api/reels/{id}/create-video-sora', [ReelController::class, 'generateVideoWithSora']);
+
+Route::post('api/reels/{id}/create-video-luma', [ReelController::class, 'generateVideoWithLuma']);
+Route::post('api/webhook/luma-callback', [ReelController::class, 'handleLumaCallback']);
+Route::get('api/reels/{id}/check-video-luma', [ReelController::class, 'checkLumaStatus']);
+
 Route::get('/api/reels/{id}', [ReelController::class, 'getReel']);
 Route::get('/api/reels', [ReelController::class, 'index']);
 

@@ -1,0 +1,83 @@
+{
+  "name": "crea_video",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "webhook-crea-video",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "6579dcb7-de5c-4be8-8948-3e65f6b754d2",
+      "name": "Webhook",
+      "webhookId": "783401f4-beb2-4cda-b7f8-03dc1ba90659"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=http://172.25.193.49:8000/api/reels/{{ $json.body.reel_id }}/create-video-luma",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "script",
+              "value": "={{ $json.body.script }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "10936ec6-0d3b-4a9c-be89-6073b1ee00c1",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "db74ffd7-6727-493e-bc82-41946b355f30",
+  "meta": {
+    "instanceId": "6ec7c5769913ad7000fc21e3082d9fb80decc860de229aa3b9a93ddcff72937c"
+  },
+  "id": "7Zqe9YdcORJ1jWwP",
+  "tags": []
+}

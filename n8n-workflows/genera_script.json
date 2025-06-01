@@ -26,7 +26,7 @@
         "nodeCredentialType": "openAiApi",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"model\": \"gpt-4o-mini\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"Sei un esperto copywriter specializzato nella creazione di script per reel Instagram/TikTok in formato tutorial. Il tuo compito è generare contenuti virali che combinino educazione e intrattenimento, ottimizzati per il formato verticale e la fruizione mobile. Conosci perfettamente le dinamiche dell'algoritmo dei social media e sai come strutturare contenuti che massimizzano engagement, retention e reach organico.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"Genera uno script dettagliato per un reel su {{ $json.body.argomento }} di esattamente 25-30 secondi.\\n\\n## SPECIFICHE TECNICHE:\\n- Durata: 25-30 secondi massimo\\n- Target: Millennials e Gen Z (18-35 anni)\\n- Tono: Umoristico, diretto, ironico ma utile\\n- Obiettivo: Educare attraverso l'intrattenimento con approccio \\\"ovvio ma geniale\\\"\\n\\n## STRUTTURA RICHIESTA:\\n\\n### HOOK (primi 3 secondi):\\n- Frase d'apertura che cattura immediatamente l'attenzione\\n- Deve creare curiosità o identificazione immediata\\n- Includi una domanda retorica o statement provocatorio\\n- Esempio: \\\"Se ancora fai X nel 2025, questo video è per te\\\"\\n\\n### CORPO - 3 STEP ULTRA-RAPIDI (15-20 secondi):\\nOgni step deve essere:\\n- Massimo 5-7 secondi ciascuno\\n- Azione concreta e specifica\\n- Linguaggio semplice e diretto\\n- Un verbo d'azione per step\\n- Risultato/beneficio immediato visibile\\n\\n### CHIUSURA WITTY (ultimi 5-7 secondi):\\n- Battuta finale memorabile\\n- Call-to-action nascosta in modo naturale\\n- Rimando ironico all'ovvietà del tutorial\\n- Invito all'engagement (commento/salvataggio)\\n\\n## ELEMENTI DA INCLUDERE:\\n\\n### COPYWRITING PERSUASIVO:\\n- Utilizza power words che generano azione\\n- Includi numeri specifici quando possibile\\n- Crea urgenza senza essere aggressivo\\n- Usa pattern di interruzione mentale\\n\\n### OTTIMIZZAZIONE ALGORITMO:\\n- Inserisci 2-3 keyword rilevanti naturalmente\\n- Crea momenti di \\\"micro-suspense\\\"\\n- Includi elementi che favoriscono i rewatch\\n- Progetta per massimizzare il completion rate\\n\\n### ASPETTI TECNICI VIDEO:\\n- Indica i momenti di cambio inquadratura\\n- Suggerisci elementi grafici/text overlay quando utili\\n- Specifica quando utilizzare zoom, close-up o transizioni\\n- Tempo di permanenza per ogni slide/inquadratura\\n\\n### ENGAGEMENT DRIVERS:\\n- Domanda finale che stimoli commenti\\n- Elemento \\\"controverso\\\" o dibattibile (se appropriato)\\n- Riferimento a trend o meme attuali\\n- Personalizzazione geografica (se rilevante)\\n\\n## VINCOLI CREATIVI:\\n- Evita cliché overusati sui social\\n- Non utilizzare \\\"Life hack\\\" o \\\"Trucchetto\\\"\\n- Mantieni un equilibrio tra utile e divertente\\n- Assicurati che sia realmente actionable\\n- Considera la fruizione senza audio (50% degli utenti)\\n\\n## OUTPUT RICHIESTO:\\n\\nFornisci lo script in questo formato:\\n\\n**SCRIPT COMPLETO:**\\n[Testo parlato completo con timing]\\n\\n**BREAKDOWN TECNICO:**\\n- Hook (0-3s): [dettagli]\\n- Step 1 (4-10s): [dettagli]\\n- Step 2 (11-17s): [dettagli]\\n- Step 3 (18-24s): [dettagli]\\n- Chiusura (25-30s): [dettagli]\\n\\n**NOTE REGIA:**\\n[Indicazioni per riprese, inquadrature, grafiche]\\n\\n**HASHTAG SUGGERITI:**\\n[5-7 hashtag strategici per la nicchia]\\n\\n**COPY DESCRIZIONE:**\\n[Testo per la caption del post, max 125 caratteri]\\n\\n**METRICHE ATTESE:**\\n[KPI da monitorare per questo tipo di contenuto]\\n\\nRicorda: L'obiettivo è creare contenuto che la gente salvi, condivida e commenti perché è simultaneamente ovvio e geniale.\"\n    }\n  ],\n  \"max_tokens\": 1200,\n  \"temperature\": 0.8,\n  \"top_p\": 0.9\n}\n",
+        "jsonBody": "={\n  \"model\": \"gpt-4o-mini\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"Sei un esperto regista horror specializzato nella creazione di script per video ultra-brevi in stile Silent Hill. Il tuo compito è generare contenuti visivi terrificanti che combinino suspense psicologica e horror atmosferico, ottimizzati per il formato verticale e la fruizione mobile. Conosci perfettamente le tecniche cinematografiche dell'horror e sai come strutturare micro-narrazioni che massimizzano tensione, paura e coinvolgimento emotivo in pochissimi secondi.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"Genera uno script dettagliato per un video horror su {{ $json.body.argomento }} di esattamente 5 secondi.\\n\\n## SPECIFICHE TECNICHE:\\n- Durata: 5 secondi esatti\\n- Target: Appassionati horror e thriller psicologici (18-35 anni)\\n- Tono: Inquietante, disturbante, psicologicamente destabilizzante\\n- Obiettivo: Creare paura e tensione massima attraverso micro-horror cinematografico\\n\\n## STRUTTURA RICHIESTA:\\n\\n### SETUP ATMOSFERICO (primo secondo):\\n- Stabilire immediatamente un'atmosfera di disagio\\n- Ambiente apparentemente normale che nasconde qualcosa di sinistro\\n- Silenzio innaturale o suoni ambientali disturbanti\\n- Inquadratura che suggerisce una presenza nascosta\\n\\n### ESCALATION PSICOLOGICA (secondi 2-3):\\n- Introduzione di un elemento disturbante\\n- Movimento impercettibile che genera ansia\\n- Dettaglio inquietante che emerge gradualmente\\n- Utilizzo di ombre, riflessi o forme indefinite\\n\\n### CLIMAX HORROR (secondo 4):\\n- Momento di massima tensione\\n- Rivelazione parziale dell'elemento terrificante\\n- Jump scare psicologico (non fisico)\\n- Punto di non ritorno che cambia la percezione\\n\\n### EPILOGO DISTURBANTE (quinto secondo):\\n- Finale che lascia inquietudine persistente\\n- Elemento che continua a turbare dopo la visione\\n- Ambiguità che genera domande senza risposta\\n- Chiusura che invita al rewatch per carpire dettagli\\n\\n## ELEMENTI DA INCLUDERE:\\n\\n### TECNICA CINEMATOGRAFICA HORROR:\\n- Utilizzo strategico di luci e ombre\\n- Angolazioni disturbanti e prospettive alterate\\n- Movimenti di camera impercettibili ma inquietanti\\n- Contrasti estremi tra normale e anormale\\n\\n### PSICOLOGIA DELLA PAURA:\\n- Sfruttamento dell'uncanny valley\\n- Paure primordiali e ancestrali\\n- Elementi familiari resi minacciosi\\n- Suggestione più potente della rivelazione esplicita\\n\\n### DESIGN SONORO HORROR:\\n- Silenzio come strumento di tensione\\n- Suoni ambientali distorti o fuori contesto\\n- Respiri, sussurri o rumori impercettibili\\n- Contrasto tra silenzio e suono improvviso\\n\\n### ESTETICA SILENT HILL:\\n- Atmosfere nebbiose e claustrofobiche\\n- Deterioramento e decadenza urbana\\n- Geometrie impossibili o distorte\\n- Presenza di elementi industriali arrugginiti\\n- Luci tremolanti o lampeggianti\\n- Texture sporche, macchiate, consumate\\n\\n## VINCOLI CREATIVI:\\n- Evita gore esplicito o violenza gratuita\\n- Punta sulla paura psicologica e atmosferica\\n- Mantieni l'ambiguità interpretativa\\n- Assicurati che sia disturbante ma non traumatizzante\\n- L'horror deve emergere dal quotidiano\\n- Ogni frame deve contribuire alla tensione\\n\\n## OUTPUT RICHIESTO:\\n\\n**SCRIPT COMPLETO:**\\n[Descrizione dettagliata secondo per secondo]\\n\\n**BREAKDOWN TECNICO:**\\n- Secondo 1: [Setup atmosferico - dettagli]\\n- Secondo 2: [Escalation iniziale - dettagli]\\n- Secondo 3: [Tensione crescente - dettagli]\\n- Secondo 4: [Climax horror - dettagli]\\n- Secondo 5: [Epilogo disturbante - dettagli]\\n\\n**NOTE REGIA:**\\n[Indicazioni per illuminazione, angolazioni, effetti pratici, post-produzione]\\n\\n**DESIGN SONORO:**\\n[Descrizione dettagliata dell'audio, musica, effetti sonori, silenze strategici]\\n\\n**ELEMENTI VISIVI CHIAVE:**\\n[Dettagli su colori, texture, oggetti di scena, makeup/costumi]\\n\\n**IMPATTO PSICOLOGICO:**\\n[Analisi delle tecniche usate per generare paura e delle reazioni attese]\\n\\n**SIMBOLISMO NASCOSTO:**\\n[Elementi subliminali o metaforici inseriti nella narrazione]\\n\\nRicorda: L'obiettivo è creare un micro-capolavoro horror che rimanga impresso nella memoria, generando quella sensazione di inquietudine persistente tipica dei migliori thriller psicologici. La paura più efficace è quella che nasce dall'immaginazione dello spettatore.\"\n    }\n  ],\n  \"max_tokens\": 1200,\n  \"temperature\": 0.8,\n  \"top_p\": 0.9\n}",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
@@ -85,6 +85,43 @@
       ],
       "id": "d37494b5-653e-4ec4-a6a7-a612a2c39c4c",
       "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://0.0.0.0:5678/webhook-test/webhook-crea-video",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "reel_id",
+              "value": "={{ $('Webhook').item.json.body.reel_id }}"
+            },
+            {
+              "name": "script",
+              "value": "={{ $('Code').item.json.script }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        0
+      ],
+      "id": "fec4aee4-e0b4-4564-ac23-5a456864cfbd",
+      "name": "HTTP Request2"
     }
   ],
   "pinData": {},
@@ -121,13 +158,24 @@
           }
         ]
       ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
-  "active": false,
+  "active": true,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "89ed483a-3e18-4c4a-b2b4-b3651430abf6",
+  "versionId": "5cdb2aac-ba4c-470e-bf75-5460073ab3ac",
   "meta": {
     "instanceId": "6ec7c5769913ad7000fc21e3082d9fb80decc860de229aa3b9a93ddcff72937c"
   },
